@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import FilterComponent from './Components/FilterComponent'
+import FilterComponent from './Components/FilterComponent';
+import TweetdisplayComponent from './Components/TweetdisplayComponent';
+import TweetdataComponent from './Components/TweetdataComponent';
+import MainComponent from './Components/MainComponent';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <FilterComponent/>
+    <MainComponent/>
   </React.StrictMode>,
   document.getElementById('root')
 );
