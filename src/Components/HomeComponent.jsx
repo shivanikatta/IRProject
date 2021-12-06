@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Routes ,Navigate} from 'react-router-dom';
-import MainComponent from './MainComponent';
 import GlobalVisualComponent from './GlobalVisualComponent';
 import HeaderComponent from './HeaderComponent';
+import SearchComponent from './SearchComponent';
 
 import '../App.css';
  
@@ -13,9 +13,10 @@ class HomeComponent extends Component {
     <Router>
     <div>
     <HeaderComponent/>  
+   
     </div>
     <Routes>
-    <Route exact path="/home" element={<MainComponent/>}/>
+    <Route exact path="/home" element={<SearchComponent/>}/>
     <Route exact path="/global" element={<GlobalVisualComponent/>}/>
     
     </Routes>

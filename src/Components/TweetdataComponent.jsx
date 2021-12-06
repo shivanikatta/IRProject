@@ -3,17 +3,11 @@ import TweetdisplayComponent from './TweetdisplayComponent';
 
 class TweetdataComponent extends Component{
 
-    state = {
-        tweetarray : [{id:'511181794914627584',senti:'success'},
-        {id:'841418541026877441',senti:'danger'},
-        {id:'511181794914627584',senti:'success'},
-        {id:'841418541026877441',senti:'danger'}]
-    }
-
     render(){
+        console.log("In tweet data", this.props)
         return(
             <div>
-                {this.state.tweetarray.map(tw => <TweetdisplayComponent key = {tw.id} id={tw.id} senti={tw.senti}/>)}
+                {this.props.tweetarray.tweets.map(tw => <TweetdisplayComponent key = {tw.id} id={tw.id} sentiment={tw.sentiment}/>)}
             </div>
         );
     }

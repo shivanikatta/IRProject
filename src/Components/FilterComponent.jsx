@@ -35,23 +35,7 @@ const FilterComponent = (props) => {
   
     return (
       <div>
-          <div style={{ marginLeft: '2%', marginTop: '60px',marginBottom:'20px' }}>
-      <h3>search by topic</h3>
-      <Autocomplete
-        style={{ width: 200 }}
-        freeSolo
-        autoComplete
-        autoHighlight
-        options={myOptions}
-        renderInput={(params) => (
-          <TextField {...params}
-            onChange={getDataFromAPI}
-            variant="standard"
-            label="Search Box"
-          />
-        )}
-      />
-    </div>
+          
         <div>
           <Button color="primary" onClick={toggle1} style={{ marginBottom: '1rem' }}>By Country</Button>
         <Collapse isOpen={isOpen1}>
@@ -126,6 +110,24 @@ const FilterComponent = (props) => {
           </Card>
         </Collapse>
         </div>
+
+        <div style={{ marginLeft: '2%', marginTop: '60px',marginBottom:'20px' }}>
+      <h3>search by topic</h3>
+      <Autocomplete
+        style={{ width: 200 }}
+        freeSolo
+        autoComplete
+        autoHighlight
+        options={myOptions}
+        renderInput={(params) => (
+          <TextField {...params}
+            onChange={getDataFromAPI}
+            variant="standard"
+            label="Search Box"
+          />
+        )}
+      />
+    </div>
       </div>
     );
   }

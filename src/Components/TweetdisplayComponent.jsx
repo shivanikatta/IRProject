@@ -8,9 +8,15 @@ class TweetdisplayComponent extends Component{
 
     render(){
 
-        let sentiment= "postive sentiment";
-        if(this.props.senti == "danger"){
+        let sentiment= " ";
+        let colour = " "
+        if(this.props.sentiment == "positive"){
+            sentiment= "positive sentiment";
+            colour = "success"
+        }
+        else{
             sentiment= "negative sentiment";
+            colour = "danger"
         }
 
         return(
@@ -18,7 +24,7 @@ class TweetdisplayComponent extends Component{
 
             <div >
                 <Toast width='50'>
-                <ToastHeader icon={this.props.senti} width='50'> {sentiment}</ToastHeader>
+                <ToastHeader icon={colour} width='50'> {sentiment}</ToastHeader>
                 <ToastBody max-width>
                 <TweetEmbed  id={this.props.id} options={{cards: 'hidden', align : 'center', width: '550px' }} hide_media="true" align = "center"/>
                 </ToastBody>
@@ -28,8 +34,6 @@ class TweetdisplayComponent extends Component{
         );
     }
 
-    //{this.state.tweetarray.map(tw => <Tweet key = {tw} tweetId = {tw} />)}
-    //{this.state.tweetarray.map(tw => <TweetEmbed key = {tw} id={tw} options={{cards: 'hidden', align : 'center', width: '550px' }} hide_media="true" align = "center"/>)}
  
 }
  export default TweetdisplayComponent;
