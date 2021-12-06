@@ -1,6 +1,7 @@
 import React, { Component,useState } from 'react';
 import TweetdataComponent from './TweetdataComponent';
 import FilterComponent from './FilterComponent';
+import LinegraphComponent from './LinegraphComponent';
 import { Row,Col} from 'reactstrap';
 
 class MainComponent extends Component{
@@ -14,6 +15,9 @@ class MainComponent extends Component{
             </Col>
             <Col className="bg-light border" >
                 <TweetdataComponent/>
+            </Col>
+            <Col className="bg-light border" >
+                <LinegraphComponent/>
             </Col>
           </Row>
           </div>

@@ -4,7 +4,10 @@ import TweetdisplayComponent from './TweetdisplayComponent';
 class TweetdataComponent extends Component{
 
     state = {
-        tweetarray : [{id:'511181794914627584',senti:'success'},{id:'841418541026877441',senti:'danger'},{id:'511181794914627584',senti:'success'},{id:'841418541026877441',senti:'danger'}]
+        tweetarray : [{id:'511181794914627584',senti:'success'},
+        {id:'841418541026877441',senti:'danger'},
+        {id:'511181794914627584',senti:'success'},
+        {id:'841418541026877441',senti:'danger'}]
     }
 
     render(){

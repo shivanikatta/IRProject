@@ -7,12 +7,14 @@ import FilterComponent from './Components/FilterComponent';
 import TweetdisplayComponent from './Components/TweetdisplayComponent';
 import TweetdataComponent from './Components/TweetdataComponent';
 import MainComponent from './Components/MainComponent';
+import GlobalVisualComponent from './Components/GlobalVisualComponent';
+import HomeComponent from './Components/HomeComponent';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <MainComponent/>
+    <HomeComponent/>
   </React.StrictMode>,
   document.getElementById('root')
 );
