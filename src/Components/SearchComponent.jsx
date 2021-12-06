@@ -9,10 +9,30 @@ import LinegraphComponent from './LinegraphComponent';
 class SearchComponent extends Component{
     state = {
         query:null,
-        searchresult:null
-       
+        searchresult:null,
+        tweetdata:null,
+        data:[{"country":"Usa","date":"2021-09-22","id":"1440779803590750212","sentiment":"positive"},{"country":"Usa","date":"2021-09-22","id":"1440761981984600066","sentiment":"positive"},{"country":"Usa","date":"2021-09-23","id":"1440859643824070667","sentiment":"positive"},{"country":"Usa","date":"2021-09-22","id":"1440774954165817344","sentiment":"positive"},{"country":"Usa","date":"2021-09-23","id":"1440864463825948673","sentiment":"positive"},{"country":"Usa","date":"2021-09-22","id":"1440799201202343936","sentiment":"positive"},{"country":"Usa","date":"2021-09-23","id":"1440871683867426816","sentiment":"positive"},{"country":"Usa","date":"2021-09-21","id":"1440344008379678720","sentiment":"positive"},{"country":"Usa","date":"2021-09-23","id":"1440823643852791812","sentiment":"positive"},{"country":"India","date":"2021-09-17","id":"1438929030812774403","sentiment":"positive"}],
+        testdata:[{"country":"Usa","date":"2021-09-22","id":"1440779803590750212","sentiment":"positive"},{"country":"Usa","date":"2021-09-22","id":"1440859643824070667","sentiment":"positive"},{"country":"Usa","date":"2021-09-22","id":"1440779803590750212","sentiment":"positive"},{"country":"Usa","date":"2021-09-22","id":"1440779803590750212","sentiment":"positive"},{"country":"Usa","date":"2021-09-22","id":"1440779803590750212","sentiment":"positive"},{"country":"Usa","date":"2021-09-22","id":"1440779803590750212","sentiment":"positive"},{"country":"Usa","date":"2021-09-22","id":"1440779803590750212","sentiment":"positive"},{"country":"Usa","date":"2021-09-22","id":"1440779803590750212","sentiment":"positive"},{"country":"Usa","date":"2021-09-22","id":"1440779803590750212","sentiment":"positive"},{"country":"Usa","date":"2021-09-22","id":"1440779803590750212","sentiment":"positive"}]
+        
     }
 
+    onSubSelect(country,date) {
+        console.log("single tweet click",country,date);
+      var obj = this.getResponsetweet()
+      }
+
+    async getResponsetweet()
+{
+    //console.log("id in getresponse for polling",this.state.name.sub_id);
+    //console.log("id in getresponse for polling",this.props.subselected.sub_id);
+    var url = "http://3.143.229.250:5000/vaccine-data?country=USA&tweet-date=2021-11-11";
+    const res = await fetch (url)
+    console.log(url)
+    const ret = await res.json()
+    console.log("Inside Get Response :", ret)
+    this.setState({ tweetdata: ret })
+    return ret
+}
   
 
     handleClick = () => {
@@ -50,6 +70,14 @@ class SearchComponent extends Component{
         // <button type="submit" onClick={this.handleClick}/>
         console.log("In render of search component");
         console.log("searchresult in render",this.state.searchresult);
+        let test;
+
+        if(this.state.tweetdata){
+            console.log("inside if loop",this.state.tweetdata.vaccineData)
+            test = <Col className="bg-light border" >
+            <LinegraphComponent tweetdata={this.state.tweetdata}/>
+        </Col>
+        }
         if(this.state.searchresult){
         return(
             <div>
@@ -75,12 +103,10 @@ class SearchComponent extends Component{
                 <FilterComponent/>
             </Col>
             <Col className="bg-light border" >
-                {this.state.searchresult.tweets.map(tw => <TweetdisplayComponent key = {tw.id} id={tw.id} sentiment={tw.sentiment}/>)}
+                {this.state.testdata.map(tw => <TweetdisplayComponent key = {tw.id} id={tw.id} sentiment={tw.sentiment} country={tw.country}  date={tw.date} onClick={(country,date) => this.onSubSelect(country,date)}/>)}
                 
             </Col>
-            <Col className="bg-light border" >
-                <LinegraphComponent/>
-            </Col>
+            {test}
           </Row>
           </div>
              </div>
@@ -110,6 +136,10 @@ class SearchComponent extends Component{
             <Col className="bg-light border" >
                 <FilterComponent/>
             </Col>
+            {/* <Col className="bg-light border" >
+                {this.state.testdata.map(tw => <TweetdisplayComponent key = {tw.id} id={tw.id} sentiment={tw.sentiment} country={tw.country}  date={tw.date} onClick={(country,date) => this.onSubSelect(country,date)}/>)}
+                
+            </Col> */}
           </Row>
           </div>
              </div>

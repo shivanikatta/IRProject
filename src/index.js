@@ -8,6 +8,7 @@ import TweetdisplayComponent from './Components/TweetdisplayComponent';
 import TweetdataComponent from './Components/TweetdataComponent';
 import GlobalVisualComponent from './Components/GlobalVisualComponent';
 import HomeComponent from './Components/HomeComponent';
+import Example from './Components/TestTweetComponent';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
