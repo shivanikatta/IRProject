@@ -82,85 +82,44 @@ class SearchComponent extends Component {
         sentiment: "positive",
       },
     ],
-    testdata: [
-      {
-        country: "Usa",
-        date: "2021-09-22",
-        id: "1440779803590750212",
-        sentiment: "positive",
-      },
-      {
-        country: "Usa",
-        date: "2021-09-22",
-        id: "1440859643824070667",
-        sentiment: "positive",
-      },
-      {
-        country: "Usa",
-        date: "2021-09-22",
-        id: "1440779803590750212",
-        sentiment: "positive",
-      },
-      {
-        country: "Usa",
-        date: "2021-09-22",
-        id: "1440779803590750212",
-        sentiment: "positive",
-      },
-      {
-        country: "Usa",
-        date: "2021-09-22",
-        id: "1440779803590750212",
-        sentiment: "positive",
-      },
-      {
-        country: "Usa",
-        date: "2021-09-22",
-        id: "1440779803590750212",
-        sentiment: "positive",
-      },
-      {
-        country: "Usa",
-        date: "2021-09-22",
-        id: "1440779803590750212",
-        sentiment: "positive",
-      },
-      {
-        country: "Usa",
-        date: "2021-09-22",
-        id: "1440779803590750212",
-        sentiment: "positive",
-      },
-      {
-        country: "Usa",
-        date: "2021-09-22",
-        id: "1440779803590750212",
-        sentiment: "positive",
-      },
-      {
-        country: "Usa",
-        date: "2021-09-22",
-        id: "1440779803590750212",
-        sentiment: "positive",
-      },
-    ],
   };
 
   onSubSelect(country, date) {
     console.log("single tweet click", country, date);
-    var obj = this.getResponsetweet();
+    var obj = this.getResponsetweet(country, date);
   }
 
-  async getResponsetweet() {
+  async getResponsetweet(country, date) {
     //console.log("id in getresponse for polling",this.state.name.sub_id);
     //console.log("id in getresponse for polling",this.props.subselected.sub_id);
     var url =
-      "http://3.143.229.250:5000/vaccine-data?country=USA&tweet-date=2021-11-11";
+      "http://3.143.229.250:5000/vaccine-data?country=" +
+      country +
+      "&tweet-date=" +
+      date;
     const res = await fetch(url);
     console.log(url);
     const ret = await res.json();
     console.log("Inside Get Response :", ret);
     this.setState({ tweetdata: ret });
+    return ret;
+  }
+
+  onFilterSelect(country, language) {
+    console.log("filter click", country, language);
+    var obj = this.getResponsetweetFilter();
+  }
+
+  async getResponsetweetFilter() {
+    //console.log("id in getresponse for polling",this.state.name.sub_id);
+    //console.log("id in getresponse for polling",this.props.subselected.sub_id);
+    var url =
+      "http://3.143.229.250:5000/search?query=help&country=india&language=hi";
+    const res = await fetch(url);
+    console.log(url);
+    const ret = await res.json();
+    console.log("Inside Get Response :", ret);
+    this.setState({ searchresult: ret });
     return ret;
   }
 
@@ -236,13 +195,20 @@ class SearchComponent extends Component {
           <div>
             <Row xs="4">
               <Col className="bg-light border">
-                <FilterComponent />
+                <FilterComponent
+                  onClick={(country, language) =>
+                    this.onFilterSelect(country, language)
+                  }
+                />
               </Col>
               <Col className="bg-light border">
-                {this.state.testdata.map((tw) => (
+                {this.state.searchresult.tweets.map((tw) => (
                   <TestTweetComponent
                     key={tw.id}
                     id={tw.id}
+                    poiName={tw.poiName}
+                    tweet={tw.tweet}
+                    verified={tw.verified}
                     sentiment={tw.sentiment}
                     country={tw.country}
                     date={tw.date}

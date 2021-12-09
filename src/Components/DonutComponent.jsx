@@ -4,29 +4,29 @@ import React, { Component } from "react";
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
-import PieData from "./piedata.json";
+import DonutData from "./donut.json";
 
 am4core.useTheme(am4themes_animated);
 
 class PiechartComponent extends Component {
   componentDidMount() {
-    let chart2 = am4core.create("chartdiv2", am4charts.PieChart);
+    let chart3 = am4core.create("chartdiv3", am4charts.PieChart);
 
-    let title = chart2.titles.create();
-    title.text = "Pie chart";
+    let title = chart3.titles.create();
+    title.text = "Donut  chart";
     title.fontSize = 25;
     title.marginBottom = 30;
 
-    chart2.data = PieData;
+    chart3.data = DonutData;
 
-    console.log("data", chart2.data);
+    console.log("data", chart3.data);
 
-    let pieSeries = chart2.series.push(new am4charts.PieSeries());
+    let pieSeries = chart3.series.push(new am4charts.PieSeries());
     pieSeries.dataFields.value = "TweetCount";
-    pieSeries.dataFields.category = "language";
+    pieSeries.dataFields.category = "country";
 
-    // chart2.innerRadius = am4core.percent(40);
-    // pieSeries.slices.template.stroke = am4core.color("#4a2abb");
+    chart3.innerRadius = am4core.percent(40);
+    pieSeries.slices.template.stroke = am4core.color("#4a2abb");
     pieSeries.slices.template.strokeWidth = 2;
     pieSeries.slices.template.strokeOpacity = 1;
 
@@ -34,7 +34,7 @@ class PiechartComponent extends Component {
   }
 
   componentWillUnmount() {
-    if (this.chart2) {
+    if (this.chart3) {
       this.chart2.dispose();
     }
   }
@@ -43,7 +43,7 @@ class PiechartComponent extends Component {
     return (
       <div
         className="container"
-        id="chartdiv2"
+        id="chartdiv3"
         style={{ width: "100%", height: "400px" }}
       ></div>
     );

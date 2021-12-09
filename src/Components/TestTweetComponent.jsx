@@ -15,13 +15,17 @@ class TestTweetComponent extends Component {
   render() {
     let sentiment = " ";
     let colour = " ";
-    if (this.props.sentiment == "positive") {
+    if (this.props.sentiment == "Positive") {
       sentiment = "positive sentiment";
       colour = "success";
-    } else {
+    } else if (this.props.sentiment == "Negative") {
       sentiment = "negative sentiment";
       colour = "danger";
+    } else {
+      sentiment = "neutral sentiment";
+      colour = "secondary";
     }
+    console.log("props in test tweet component", this.props);
     return (
       <div>
         <Toast width="50">
@@ -41,15 +45,16 @@ class TestTweetComponent extends Component {
           <ToastBody max-width>
             <Card>
               <CardBody>
-                <CardTitle tag="h5">Card title</CardTitle>
+                <CardTitle tag="h5">{this.props.tweet}</CardTitle>
                 <CardSubtitle className="mb-2 text-muted" tag="h6">
-                  {this.props.id}
+                  {this.props.poiName}
                 </CardSubtitle>
                 <CardText>
                   {this.props.date}
+                  <h1> </h1>
                   {this.props.country}
                 </CardText>
-                <Button>Button</Button>
+                {/* <Button>Button</Button> */}
               </CardBody>
             </Card>
           </ToastBody>
