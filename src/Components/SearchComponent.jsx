@@ -60,7 +60,7 @@ class SearchComponent extends Component {
         <div>
           <div>
             <Row>
-              <Col sm="4" className="bg-light border">
+              <Col sm="6">
                 {this.props.searchresult.tweets.map((tw) => (
                   <TestTweetComponent
                     key={tw.id}

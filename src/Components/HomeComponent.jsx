@@ -112,7 +112,7 @@ class HomeComponent extends Component {
                 }
               />
             </Col>
-            <Col sm="8" className="bg-light border">
+            <Col sm="10" className="bg-light border">
               <Routes>
                 <Route
                   exact

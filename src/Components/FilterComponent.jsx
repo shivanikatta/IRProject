@@ -10,6 +10,8 @@ import {
   Label,
   Col,
   Input,
+  Row,
+  Badge,
 } from "reactstrap";
 import TextField from "@mui/material/TextField";
 //import TextField from '@mui/styles';
@@ -17,6 +19,9 @@ import TextField from "@mui/material/TextField";
 //@material-ui/styles
 import Autocomplete from "@mui/material/Autocomplete";
 import { FcFilledFilter } from "react-icons/fc";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 //'@material-ui/lab/Autocomplete';
 class FilterComponent extends Component {
   state = {
@@ -25,6 +30,7 @@ class FilterComponent extends Component {
     isOpen1: false,
     isOpen2: false,
     myOptions: [],
+    startDate: new Date(),
   };
 
   toggle1 = () => {
@@ -66,6 +72,14 @@ class FilterComponent extends Component {
     console.log("props in the filter component ", this.props);
     return (
       <div>
+        <Row>
+          <Col xs="auto">
+            <h3>Filters </h3>
+          </Col>
+          <Col xs="auto">
+            <FcFilledFilter size={25} />
+          </Col>
+        </Row>
         <div>
           <Button
             color="primary"
@@ -181,9 +195,9 @@ class FilterComponent extends Component {
         </div>
 
         <div
-          style={{ marginLeft: "2%", marginTop: "60px", marginBottom: "20px" }}
+          style={{ marginLeft: "2%", marginTop: "20px", marginBottom: "20px" }}
         >
-          <h3>search by topic</h3>
+          <h5>search by topic</h5>
           <Autocomplete
             style={{ width: 200 }}
             freeSolo
@@ -200,16 +214,27 @@ class FilterComponent extends Component {
             )}
           />
         </div>
+        <div>
+          <Badge color="primary">Pick Start Date</Badge>
+          <DatePicker
+            selected={this.state.startDate}
+            onChange={(date) => this.setState({ startDate: date })}
+          />
+        </div>
 
-        <Button
-          color="primary"
-          onClick={() =>
-            this.props.onClick(this.state.country, this.state.language)
-          }
+        <div
+          style={{ marginLeft: "2%", marginTop: "20px", marginBottom: "20px" }}
         >
-          {" "}
-          Apply{" "}
-        </Button>
+          <Button
+            color="primary"
+            onClick={() =>
+              this.props.onClick(this.state.country, this.state.language)
+            }
+          >
+            {" "}
+            Apply{" "}
+          </Button>
+        </div>
       </div>
     );
   }
