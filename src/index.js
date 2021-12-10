@@ -5,16 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import FilterComponent from './Components/FilterComponent';
 import TweetdisplayComponent from './Components/TweetdisplayComponent';
-import TweetdataComponent from './Components/TweetdataComponent';
 import GlobalVisualComponent from './Components/GlobalVisualComponent';
 import HomeComponent from './Components/HomeComponent';
 import Example from './Components/TestTweetComponent';
+import MainComponent from './Components/MainComponent';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <HomeComponent/>
+    <MainComponent/>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -10,20 +10,20 @@ import { Row, Col } from "reactstrap";
 class GlobalVisualComponent extends Component {
   render() {
     return (
-      <div>
-        <div className="container">
+      <div className="container">
+        <div className="bg-light border">
           <BargraphComponent />
         </div>
-        <div className="container">
+        <div className="bg-light border">
           <PiechartComponent />
         </div>
-        <div className="container">
+        <div className="bg-light border">
           <DonutComponent />
         </div>
-        <div className="container">
+        <div className="bg-light border">
           <StackgraphComponent />
         </div>
-        <div className="container">
+        <div className="bg-light border">
           <HorizontbarComponent />
         </div>
       </div>
