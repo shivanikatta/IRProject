@@ -23,8 +23,8 @@ class StackgraphComponent extends Component {
           <CartesianGrid />
           <XAxis dataKey="name" />
           <YAxis />
-          <Bar dataKey="x" stackId="a" fill="#8884d8" />
-          <Bar dataKey="y" stackId="a" fill="#82ca9d" />
+          <Bar dataKey="x" stackId="a" fill="#8B0000" />
+          <Bar dataKey="y" stackId="a" fill="#A9A9A9" />
           <Bar dataKey="z" stackId="a" fill="green" />
         </BarChart>
       </div>

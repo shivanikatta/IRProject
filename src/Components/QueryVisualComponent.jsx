@@ -8,7 +8,7 @@ import HorizontbarComponent from "./HorizontbarComponent";
 import WordCloud from "./WordCloud";
 import { Row, Col } from "reactstrap";
 
-class GlobalVisualComponent extends Component {
+class QueryVisualComponent extends Component {
   render() {
     return (
       <div className="container">
@@ -34,4 +34,4 @@ class GlobalVisualComponent extends Component {
     );
   }
 }
-export default GlobalVisualComponent;
+export default QueryVisualComponent;

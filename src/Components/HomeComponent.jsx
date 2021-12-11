@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Link, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -15,6 +15,7 @@ import GlobalVisualComponent from "./GlobalVisualComponent";
 import HeaderComponent from "./HeaderComponent";
 import SearchComponent from "./SearchComponent";
 import FilterComponent from "./FilterComponent";
+import QueryVisualComponent from "./QueryVisualComponent";
 import { FcSearch } from "react-icons/fc";
 
 import "../App.css";
@@ -39,9 +40,17 @@ class HomeComponent extends Component {
   };
 
   async getResponse() {
-    //console.log("id in getresponse for polling",this.state.name.sub_id);
-    //console.log("id in getresponse for polling",this.props.subselected.sub_id);
-    var url = "http://3.143.229.250:5000/search?query=" + this.state.query;
+    console.log("the query term ", this.state.query);
+    let queryarray = this.state.query.split(" ");
+    let multiword = "";
+
+    for (let i = 0; i < queryarray.length - 1; i++) {
+      multiword = multiword + queryarray[i] + "%20";
+    }
+    multiword = multiword + queryarray[queryarray.length - 1];
+
+    console.log("the multi query term ", multiword);
+    var url = "http://3.143.229.250:5000/search?query=" + multiword;
     const res = await fetch(url);
     console.log(url);
     const ret = await res.json();
@@ -120,6 +129,11 @@ class HomeComponent extends Component {
                   element={
                     <SearchComponent searchresult={this.state.searchresult} />
                   }
+                />
+                <Route
+                  exact
+                  path="/quevisual"
+                  element={<QueryVisualComponent />}
                 />
                 <Route
                   exact

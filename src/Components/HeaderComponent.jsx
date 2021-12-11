@@ -6,10 +6,10 @@ import {
   NavbarToggler,
   Collapse,
   NavItem,
-  Jumbotron,
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import { FcHome } from "react-icons/fc";
+import { FcScatterPlot } from "react-icons/fc";
 import { FcComboChart } from "react-icons/fc";
 
 class Header extends Component {
@@ -44,10 +44,16 @@ class Header extends Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
+                  <NavLink className="nav-link" to="/quevisual">
+                    <span className="fa fa-home fa-lg"></span>
+                    <FcScatterPlot size={20} /> Query Visual
+                  </NavLink>
+                </NavItem>
+                <NavItem>
                   <NavLink className="nav-link" to="/global">
                     <span className="fa fa-info fa-lg"></span>
                     <FcComboChart size={20} />
-                    Global{" "}
+                    Global Visual{" "}
                   </NavLink>
                 </NavItem>
               </Nav>
