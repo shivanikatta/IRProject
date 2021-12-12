@@ -15,7 +15,7 @@ import GlobalVisualComponent from "./GlobalVisualComponent";
 import HeaderComponent from "./HeaderComponent";
 import SearchComponent from "./SearchComponent";
 import FilterComponent from "./FilterComponent";
-import QueryVisualComponent from "./QueryVisualComponent";
+import Vaccine from "./Vaccine";
 import moment from "moment";
 import { FcSearch } from "react-icons/fc";
 
@@ -169,11 +169,7 @@ class HomeComponent extends Component {
                     <SearchComponent searchresult={this.state.searchresult} />
                   }
                 />
-                <Route
-                  exact
-                  path="/quevisual"
-                  element={<QueryVisualComponent />}
-                />
+                <Route exact path="/vaccine" element={<Vaccine />} />
                 <Route
                   exact
                   path="/global"

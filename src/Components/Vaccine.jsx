@@ -1,22 +1,22 @@
 import React, { Component } from "react";
 
-import BargraphComponent from "./BargraphComponent";
-import PiechartComponent from "./PiechartComponent";
+import VaccineHesitency from "./VaccineHesitency";
+import VaccinePersuasion from "./VaccinePersuasion";
 import DonutComponent from "./DonutComponent";
 import StackgraphComponent from "./StackgraphComponent";
 import HorizontbarComponent from "./HorizontbarComponent";
 import WordCloud from "./WordCloud";
 import { Row, Col } from "reactstrap";
 
-class QueryVisualComponent extends Component {
+class Vaccine extends Component {
   render() {
     return (
       <div className="container">
         <div className="bg-light border">
-          <BargraphComponent />
+          <VaccineHesitency />
         </div>
         <div className="bg-light border">
-          <PiechartComponent />
+          <VaccinePersuasion />
         </div>
         <div className="bg-light border">
           <DonutComponent />
@@ -34,4 +34,4 @@ class QueryVisualComponent extends Component {
     );
   }
 }
-export default QueryVisualComponent;
+export default Vaccine;

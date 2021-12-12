@@ -44,9 +44,9 @@ class Header extends Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-link" to="/quevisual">
+                  <NavLink className="nav-link" to="/vaccine">
                     <span className="fa fa-home fa-lg"></span>
-                    <FcScatterPlot size={20} /> Query Visual
+                    <FcScatterPlot size={20} /> Vaccine Hesitancy/Persuasion
                   </NavLink>
                 </NavItem>
                 <NavItem>

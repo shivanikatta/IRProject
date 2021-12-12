@@ -14,7 +14,7 @@ function WordCloud() {
           fontFamily: "courier new",
           fontSizes: [20, 60],
         }}
-        size={[800, 700]}
+        size={[800, 600]}
       />
     </div>
   );

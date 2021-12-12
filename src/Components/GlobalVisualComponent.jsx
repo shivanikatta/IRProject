@@ -7,6 +7,8 @@ import StackgraphComponent from "./StackgraphComponent";
 import HorizontbarComponent from "./HorizontbarComponent";
 import WordCloud from "./WordCloud";
 import GraphComponent from "./GraphComponent";
+import GeoGraphComponent from "./GeoGraphComponent";
+import CovidPoiGraphComponent from "./CovidPoiGraphComponent";
 import { Row, Col } from "reactstrap";
 
 class GlobalVisualComponent extends Component {
@@ -14,25 +16,31 @@ class GlobalVisualComponent extends Component {
     return (
       <div className="container">
         <div className="bg-light border">
-          <BargraphComponent />
+          <CovidPoiGraphComponent />
         </div>
+        {/* <div className="bg-light border">
+          <BargraphComponent />
+        </div> */}
         <div className="bg-light border">
           <PiechartComponent />
         </div>
         <div className="bg-light border">
           <DonutComponent />
         </div>
-        <div className="bg-light border">
+        {/* <div className="bg-light border">
           <StackgraphComponent />
-        </div>
-        <div className="bg-light border">
+        </div> */}
+        {/* <div className="bg-light border">
           <HorizontbarComponent />
-        </div>
+        </div> */}
         <div className="bg-light border">
           <WordCloud />
         </div>
         <div className="bg-light border">
           <GraphComponent />
+        </div>
+        <div className="bg-light border">
+          <GeoGraphComponent />
         </div>
       </div>
     );
