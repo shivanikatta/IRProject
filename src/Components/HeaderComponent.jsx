@@ -9,7 +9,7 @@ import {
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import { FcHome } from "react-icons/fc";
-import { FcScatterPlot } from "react-icons/fc";
+import { FcReading } from "react-icons/fc";
 import { FcComboChart } from "react-icons/fc";
 
 class Header extends Component {
@@ -46,7 +46,7 @@ class Header extends Component {
                 <NavItem>
                   <NavLink className="nav-link" to="/vaccine">
                     <span className="fa fa-home fa-lg"></span>
-                    <FcScatterPlot size={20} /> Vaccine Hesitancy/Persuasion
+                    <FcReading size={20} /> Vaccine Hesitancy/Persuasion
                   </NavLink>
                 </NavItem>
                 <NavItem>

@@ -1,10 +1,10 @@
 [{
-    "country": "India",
-    "TweetCount": 77762
+    "sentiment": "Positive Sentiment",
+    "count": 452
   }, {
-    "country": "USA",
-    "TweetCount": 96745
+    "sentiment": "Netural Sentiment",
+    "count": 906
   }, {
-    "country": "Mexico",
-    "TweetCount": 23776
+    "sentiment": "Negative Sentiment",
+    "count": 1454
   }]

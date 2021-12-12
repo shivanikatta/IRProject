@@ -74,6 +74,12 @@ class VaccinePersuasion extends Component {
               "As of August 9, more than 195.2 million people have received at least one dose of a #COVID19 vaccine. Of those, 166.7 million are fully vaccinated. Getting vaccinated is safe, easy, and free. Make your vaccine appointment today. More: https://t.co/zYLe3H12re. https://t.co/0EPue8DWRJ",
               "1424837922214354948",
             ],
+            [
+              "Usa",
+              "2021-09-10",
+              "My message to unvaccinated Americans is this: What more is there to wait for? What more do you need to see?\n\nWe have made the vaccinations free, safe, and convenient. The vaccine has FDA approval. Over 200 million Americans have gotten at least one shot.\n\nDo the right thing.",
+              "1436366944886837260",
+            ],
           ]}
           options={{
             showRowNumber: true,

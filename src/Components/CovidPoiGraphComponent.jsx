@@ -6,7 +6,7 @@ class CovidPoiGraphComponent extends Component {
     return (
       <div>
         <Chart
-          width={"800px"}
+          width={"1000px"}
           height={"600px"}
           chartType="BarChart"
           loader={<div>Loading Chart</div>}
@@ -53,24 +53,3 @@ class CovidPoiGraphComponent extends Component {
 }
 
 export default CovidPoiGraphComponent;
-
-// ["Element", "Density", { role: "style" }],
-
-//             ["POTUS", 473, "#b87333"],
-//             ["narendramodi", 934, "silver", null],
-//             ["lopezobrador_", 414, "silver", null],
-//             ["MoHFW_INDIA", 173, "color: #e5e4e2", null],
-//             ["mansukhmandviya", 1159, "color: #e5e4e2", null],
-//             ["PMOIndia", 515, "color: #e5e4e2", null],
-//             ["KamalaHarris", 449, "color: #e5e4e2", null],
-//             ["FelipeCalderon", 151, "silver", null],
-//             ["ArvindKejriwal", 364, "silver", null],
-//             ["NHPINDIA", 1159, "silver", null],
-//             ["JoeBiden", 75, "#b87333", null],
-//             ["BarackObama", 588, "#b87333", null],
-//             ["Mzavalagc", 597, "color: #e5e4e2", null],
-//             ["lorenzocordovav", , 862, "color: #e5e4e2", null],
-//             ["CDCgov", 175, "color: #e5e4e2", null],
-//             ["SSalud_mx", 164, "silver", null],
-//             ["HHSGov", 330, "silver", null],
-//             ["SecretaryLevine", 749, "silver", null],

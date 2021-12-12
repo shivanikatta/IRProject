@@ -13,7 +13,8 @@ class PiechartComponent extends Component {
     let chart3 = am4core.create("chartdiv3", am4charts.PieChart);
 
     let title = chart3.titles.create();
-    title.text = "Percentage of tweets per Country";
+    title.text =
+      "Percentage of Sentiment on General population Tweets (Non-POI)";
     title.fontSize = 25;
     title.marginBottom = 30;
 
@@ -22,8 +23,8 @@ class PiechartComponent extends Component {
     console.log("data", chart3.data);
 
     let pieSeries = chart3.series.push(new am4charts.PieSeries());
-    pieSeries.dataFields.value = "TweetCount";
-    pieSeries.dataFields.category = "country";
+    pieSeries.dataFields.value = "count";
+    pieSeries.dataFields.category = "sentiment";
 
     chart3.innerRadius = am4core.percent(40);
     pieSeries.slices.template.stroke = am4core.color("#4a2abb");

@@ -9,6 +9,8 @@ import WordCloud from "./WordCloud";
 import GraphComponent from "./GraphComponent";
 import GeoGraphComponent from "./GeoGraphComponent";
 import CovidPoiGraphComponent from "./CovidPoiGraphComponent";
+import SentimentAnalysis from "./SentimentAnalysis";
+import TopicAnalysis from "./TopicAnalysis";
 import { Row, Col } from "reactstrap";
 
 class GlobalVisualComponent extends Component {
@@ -41,6 +43,12 @@ class GlobalVisualComponent extends Component {
         </div>
         <div className="bg-light border">
           <GeoGraphComponent />
+        </div>
+        {/* <div className="bg-light border">
+          <SentimentAnalysis />
+        </div> */}
+        <div className="bg-light border">
+          <TopicAnalysis />
         </div>
       </div>
     );
