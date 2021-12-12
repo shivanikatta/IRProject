@@ -6,6 +6,7 @@ import DonutComponent from "./DonutComponent";
 import StackgraphComponent from "./StackgraphComponent";
 import HorizontbarComponent from "./HorizontbarComponent";
 import WordCloud from "./WordCloud";
+import GraphComponent from "./GraphComponent";
 import { Row, Col } from "reactstrap";
 
 class GlobalVisualComponent extends Component {
@@ -29,6 +30,9 @@ class GlobalVisualComponent extends Component {
         </div>
         <div className="bg-light border">
           <WordCloud />
+        </div>
+        <div className="bg-light border">
+          <GraphComponent />
         </div>
       </div>
     );

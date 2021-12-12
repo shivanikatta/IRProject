@@ -16,6 +16,7 @@ import HeaderComponent from "./HeaderComponent";
 import SearchComponent from "./SearchComponent";
 import FilterComponent from "./FilterComponent";
 import QueryVisualComponent from "./QueryVisualComponent";
+import moment from "moment";
 import { FcSearch } from "react-icons/fc";
 
 import "../App.css";
@@ -59,16 +60,54 @@ class HomeComponent extends Component {
     return ret;
   }
 
-  onFilterSelect(country, language) {
-    console.log("filter click", country, language);
-    var obj = this.getResponsetweetFilter();
+  onFilterSelect(country, language, startDate, endDate) {
+    console.log("filter click", country, language, startDate, endDate);
+    console.log(moment(startDate).utc().format("YYYY-MM-DD"));
+    console.log(moment(endDate).utc().format("YYYY-MM-DD"));
+    let sDate = moment(startDate).utc().format("YYYY-MM-DD");
+    let eDate = moment(startDate).utc().format("YYYY-MM-DD");
+    let queryarray = this.state.query.split(" ");
+    let multiword = "";
+
+    for (let i = 0; i < queryarray.length - 1; i++) {
+      multiword = multiword + queryarray[i] + "%20";
+    }
+    multiword = multiword + queryarray[queryarray.length - 1];
+
+    var obj = this.getResponsetweetFilter(
+      multiword,
+      country,
+      language,
+      sDate,
+      eDate
+    );
   }
 
-  async getResponsetweetFilter() {
-    //console.log("id in getresponse for polling",this.state.name.sub_id);
-    //console.log("id in getresponse for polling",this.props.subselected.sub_id);
+  async getResponsetweetFilter(multiword, country, language, sDate, eDate) {
+    let curl = "";
+    let lurl = "";
+    let sdurl = "";
+    let edurk = "";
+    if (country) {
+      curl = "&country=" + country;
+    }
+    if (language) {
+      lurl = "&language=" + language;
+    }
+    if (sDate && sDate != "Invalid date") {
+      sdurl = "&from-date=" + sDate;
+    }
+    if (eDate && sDate != "Invalid date") {
+      edurk = "&to-date=" + eDate;
+    }
     var url =
-      "http://3.143.229.250:5000/search?query=help&country=india&language=hi";
+      "http://3.143.229.250:5000/search?query=" +
+      multiword +
+      curl +
+      lurl +
+      sdurl +
+      edurk;
+    //"&country=india&language=hi";
     const res = await fetch(url);
     console.log(url);
     const ret = await res.json();
@@ -116,8 +155,8 @@ class HomeComponent extends Component {
           <Row>
             <Col sm="2" className="bg-light border">
               <FilterComponent
-                onClick={(country, language) =>
-                  this.onFilterSelect(country, language)
+                onClick={(country, language, startDate, endDate) =>
+                  this.onFilterSelect(country, language, startDate, endDate)
                 }
               />
             </Col>

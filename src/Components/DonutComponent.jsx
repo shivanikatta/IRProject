@@ -13,7 +13,7 @@ class PiechartComponent extends Component {
     let chart3 = am4core.create("chartdiv3", am4charts.PieChart);
 
     let title = chart3.titles.create();
-    title.text = "Donut  chart";
+    title.text = "Percentage of tweets per Country";
     title.fontSize = 25;
     title.marginBottom = 30;
 

@@ -48,7 +48,7 @@ class TestTweetComponent extends Component {
                 this.props.onClick(this.props.country, this.props.date)
               }
             >
-              Tweet Visual
+              Vaccine curve
             </Button>{" "}
             {verified}
           </ToastHeader>

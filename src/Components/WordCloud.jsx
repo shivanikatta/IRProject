@@ -1,43 +1,23 @@
 import React from "react";
 import ReactWordcloud from "react-wordcloud";
+import globalwords from "./globalwords.json";
 
-const words = [
-  {
-    text: "told",
-    value: 64,
-  },
-  {
-    text: "mistake",
-    value: 11,
-  },
-  {
-    text: "thought",
-    value: 16,
-  },
-  {
-    text: "bad",
-    value: 17,
-  },
-  {
-    text: "told",
-    value: 100,
-  },
-  {
-    text: "mistake",
-    value: 150,
-  },
-  {
-    text: "thought",
-    value: 200,
-  },
-  {
-    text: "bad",
-    value: 55,
-  },
-];
+const words = globalwords;
 
 function WordCloud() {
-  return <ReactWordcloud words={words} />;
+  return (
+    <div>
+      <h1>Global Word Cloud</h1>
+      <ReactWordcloud
+        words={words}
+        options={{
+          fontFamily: "courier new",
+          fontSizes: [20, 60],
+        }}
+        size={[800, 700]}
+      />
+    </div>
+  );
 }
 
 export default WordCloud;

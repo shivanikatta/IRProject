@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 //import { Accordion,AccordionItem,AccordionHeader,AccordionBody} from 'reactstrap';
-//import React, { useState } from 'react';
+
 import {
   Collapse,
   Button,
@@ -13,11 +13,9 @@ import {
   Row,
   Badge,
 } from "reactstrap";
-import TextField from "@mui/material/TextField";
+//import TextField from "@mui/material/TextField";
 //import TextField from '@mui/styles';
-//'@material-ui/core/TextField';
-//@material-ui/styles
-import Autocomplete from "@mui/material/Autocomplete";
+//import Autocomplete from "@mui/material/Autocomplete";
 import { FcFilledFilter } from "react-icons/fc";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -30,7 +28,8 @@ class FilterComponent extends Component {
     isOpen1: false,
     isOpen2: false,
     myOptions: [],
-    startDate: new Date(),
+    startDate: null,
+    endDate: null,
   };
 
   toggle1 = () => {
@@ -50,23 +49,23 @@ class FilterComponent extends Component {
     console.log("in Filter handlechange ", this.state.language);
   };
 
-  getDataFromAPI = () => {
-    var myoptions = [];
-    console.log("Options Fetched from API");
+  // getDataFromAPI = () => {
+  //   var myoptions = [];
+  //   console.log("Options Fetched from API");
 
-    fetch("http://dummy.restapiexample.com/api/v1/employees")
-      .then((response) => {
-        return response.json();
-      })
-      .then((res) => {
-        console.log(res.data);
-        for (var i = 0; i < res.data.length; i++) {
-          myoptions.push(res.data[i].employee_name);
-        }
-        this.setState({ myOptions: myoptions });
-        //setMyOptions(myOptions);
-      });
-  };
+  //   fetch("http://dummy.restapiexample.com/api/v1/employees")
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((res) => {
+  //       console.log(res.data);
+  //       for (var i = 0; i < res.data.length; i++) {
+  //         myoptions.push(res.data[i].employee_name);
+  //       }
+  //       this.setState({ myOptions: myoptions });
+  //       //setMyOptions(myOptions);
+  //     });
+  // };
 
   render() {
     console.log("props in the filter component ", this.props);
@@ -181,10 +180,10 @@ class FilterComponent extends Component {
                         <Input
                           type="checkbox"
                           name="language"
-                          value="me"
+                          value="es"
                           onChange={this.handleChange}
                         />
-                        <strong>Mexico</strong>
+                        <strong>Spanish</strong>
                       </Label>
                     </FormGroup>
                   </Col>
@@ -194,7 +193,7 @@ class FilterComponent extends Component {
           </Collapse>
         </div>
 
-        <div
+        {/* <div
           style={{ marginLeft: "2%", marginTop: "20px", marginBottom: "20px" }}
         >
           <h5>search by topic</h5>
@@ -213,12 +212,20 @@ class FilterComponent extends Component {
               />
             )}
           />
-        </div>
+        </div> */}
         <div>
           <Badge color="primary">Pick Start Date</Badge>
           <DatePicker
             selected={this.state.startDate}
+            dateFormat={"yyyy/MM/dd"}
             onChange={(date) => this.setState({ startDate: date })}
+          />
+        </div>
+        <div>
+          <Badge color="primary">Pick End Date</Badge>
+          <DatePicker
+            selected={this.state.endDate}
+            onChange={(date) => this.setState({ endDate: date })}
           />
         </div>
 
@@ -228,7 +235,12 @@ class FilterComponent extends Component {
           <Button
             color="primary"
             onClick={() =>
-              this.props.onClick(this.state.country, this.state.language)
+              this.props.onClick(
+                this.state.country,
+                this.state.language,
+                this.state.startDate,
+                this.state.endDate
+              )
             }
           >
             {" "}

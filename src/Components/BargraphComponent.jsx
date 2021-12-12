@@ -13,7 +13,7 @@ class BargraphComponent extends Component {
     let chart = am4core.create("chartdiv", am4charts.XYChart);
 
     let title = chart.titles.create();
-    title.text = " No of tweets per POI";
+    title.text = " No of Covid related tweets per POI";
     title.fontSize = 25;
     title.marginBottom = 30;
 
@@ -23,8 +23,21 @@ class BargraphComponent extends Component {
 
     let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
     categoryAxis.dataFields.category = "POI";
-    categoryAxis.title.text = "POI";
-    categoryAxis.autoRotateAngle = "45";
+    categoryAxis.autoGridCount = true;
+    categoryAxis.minHorizontalGap = 100;
+    categoryAxis.parseDates = false;
+    // categoryAxis.title.text = "POI";
+    categoryAxis.autoRotateAngle = 90;
+    console.log("in bar graph ", (categoryAxis.autoRotateAngle = 90));
+    categoryAxis.autoRotateCount = 45;
+    categoryAxis.gridAlpha = 0;
+    categoryAxis.gridPosition = "start";
+    categoryAxis.equalSpacing = false;
+    categoryAxis.minPeriod = "DD";
+    categoryAxis.startOnAxis = true;
+    categoryAxis.axisColor = "#green";
+    categoryAxis.axisThickness = 1;
+    categoryAxis.showLastLabel = true;
 
     // let xAxis = chart.xAxes.push(new am4charts.CategoryAxis());
     // xAxis.title.text = "Clients";
